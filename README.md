@@ -27,3 +27,6 @@ Tarayicida http://localhost:5173 adresini ac.
 
 ## Ekran Goruntusu
 ![alt text](image.png)
+
+## Lighthouse raporu
+![alt text](image-1.png)
