@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -104,9 +101,9 @@ function App() {
       <footer>
         <p>© 2025 Sude Düz. Tüm hakları saklıdır.</p>
         <ul className="social-links">
-          <li><a href="https://github.com/sudeduz" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          <li><a href="https://linkedin.com/in/sudeduz" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-          <li><a href="mailto:sude@example.com">E-posta</a></li>
+          <li><a href="https://github.com/sudeduz04" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/sudeduz04" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:sudeduz04@gmail.com">E-posta</a></li>
         </ul>
       </footer>
 
