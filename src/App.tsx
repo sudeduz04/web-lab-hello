@@ -1,113 +1,87 @@
-import './App.css'
+import './App.css';
+import Input from './components/Input';
+import Card from './components/Card';
+import Button from './components/Button';
 
 function App() {
   return (
-    <div>
+    <>
+      {/* Skip to main content */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-800 text-white p-2 z-50">Ana içeriğe atla</a>
 
-      {/* HEADER */}
-      <header>
-        <nav aria-label="Ana navigasyon">
-          <ul>
-            <li><a href="#hakkimda">Hakkımda</a></li>
-            <li><a href="#projeler">Projeler</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
-          </ul>
-        </nav>
+      {/* Header & Navigation */}
+      <header className="sticky top-0 z-40 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
+          <h1 className="text-xl font-bold text-blue-800 dark:text-blue-300">Sude Demir</h1>
+          <nav aria-label="Ana navigasyon">
+            <ul className="flex flex-wrap gap-2">
+              <li><a href="#hakkimda" className="px-3 py-1 rounded-md text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-800 transition-colors">Hakkımda</a></li>
+              <li><a href="#projeler" className="px-3 py-1 rounded-md text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-800 transition-colors">Projeler</a></li>
+              <li><a href="#iletisim" className="px-3 py-1 rounded-md text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-800 transition-colors">İletişim</a></li>
+            </ul>
+          </nav>
+        </div>
       </header>
 
-      <a href="#main-content" className="skip-link">
-        Ana icerige atla
-      </a>
-
-      <main id="main-content">
-        <section id="hakkimda">
-          <h2>Hakkımda</h2>
-          <figure>
-            <img src="src/assets/profil.jpg"
-              alt="Sude Düz'ün vesikalık fotoğrafı"
-              width={120} height={120} style={{objectFit: 'cover', borderRadius: '50%'}} />
-            <figcaption>Sude Düz</figcaption> 
+      {/* Hakkımda Bölümü */}
+      <section id="hakkimda" className="py-16 px-4">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8">
+          <figure className="shrink-0">
+            <img src="profil.jpg" alt="Sude Demir vesikalık fotoğrafı" className="w-40 h-40 rounded-full object-cover shadow-lg" />
           </figure>
-            <p>Merhaba! Ben Sude Düz. Frontend geliştirme ve UI/UX tasarım konularında çalışıyorum. Web teknolojileriyle projeler üretmeyi seviyorum.</p>
-            <ul>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>React</li>
-              <li>Vite</li>
+          <div>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 text-center md:text-left">Hakkımda</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+              Frontend geliştirici olarak modern web teknolojileriyle kullanıcı dostu arayüzler oluşturuyorum.
+            </p>
+            <ul className="flex flex-wrap gap-2">
+              <li className="bg-blue-800 text-white px-3 py-1 rounded-full text-sm">React</li>
+              <li className="bg-blue-800 text-white px-3 py-1 rounded-full text-sm">TypeScript</li>
+              <li className="bg-blue-800 text-white px-3 py-1 rounded-full text-sm">Tailwind</li>
             </ul>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="projeler">
-            <h2>Projelerim</h2>
-            <div className="proje-kartlari">
-              <article className="proje-karti">
-                <h3>Todo App</h3>
-                <p>Basit ve hızlı yapılacaklar uygulaması. Kullanıcı dostu arayüz ve localStorage desteği.</p>
-                <ul>
-                  <li>JavaScript</li>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                </ul>
-                <img src="src/assets/proje2.jpg" alt="Todo App ekran görüntüsü"
-                  width={300} height={180} style={{objectFit: 'cover', borderRadius: '8px'}} />
-              </article>
+      {/* Projelerim Bölümü */}
+      <section id="projeler" className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">Projelerim</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card variant="elevated" title="E-Ticaret" image="proje1.jpg" imageAlt="E-Ticaret anasayfa görünümü">
+              React ve Node.js ile tam kapsamlı uygulama.
+            </Card>
+            <Card variant="outlined" title="Blog Platformu" image="proje2.jpg" imageAlt="Blog platformu ekranı">
+              Next.js ve MongoDB ile dinamik blog.
+            </Card>
+            <Card variant="filled" title="Portföy Sitesi" image="proje3.jpg" imageAlt="Portföy site ekranı" footer={<Button size="sm">Detay</Button>}>
+              Kişisel portföy ve CV sunumu.
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* İletişim Formu */}
+      <section id="iletisim" className="py-16 px-4">
+        <div className="max-w-lg mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">İletişim</h2>
+          <form className="space-y-4">
+            <Input id="name" label="Ad Soyad" required placeholder="Adınız" />
+            <Input id="email" label="E-posta" type="email" required placeholder="E-posta adresiniz" />
+            <div className="space-y-1">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Mesajınız</label>
+              <textarea id="message" rows={5} required className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600" placeholder="Mesajınızı yazın..."></textarea>
             </div>
-        </section>
-
-        <section id="iletisim">
-          <h2>İletişim</h2>
-          <form action="#" method="POST" noValidate>
-      <fieldset>
-        <legend>Iletisim Formu</legend>
-
-        <div className="form-group">
-          <label htmlFor="name">Ad Soyad:</label>
-          <input type="text" id="name" name="name" required minLength={2} aria-describedby="name-error" />
-          <small id="name-error" className="error-msg" role="alert"></small>
+            <Button variant="primary" size="lg" type="submit">Gönder</Button>
+          </form>
         </div>
+      </section>
 
-        <div className="form-group">
-          <label htmlFor="email">E-posta:</label>
-          <input type="email" id="email" name="email" required aria-describedby="email-error" />
-          <small id="email-error" className="error-msg" role="alert"></small>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="subject">Konu:</label>
-          <select id="subject" name="subject" required aria-describedby="subject-error" >
-            <option value="">-- Seciniz--</option>
-            <option value="is">Is Teklifi</option>
-            <option value="soru">Soru</option>
-            <option value="oneri">Oneri</option>
-          </select>
-          <small id="subject-error" className="error-msg" role="alert"></small>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="message">Mesajiniz:</label>
-          <textarea id="message" name="message" rows={5} required minLength={10} aria-describedby="message-error" ></textarea>
-          <small id="message-error" className="error-msg" role="alert"></small>
-        </div>
-
-        <button type="submit">Gonder</button>
-      </fieldset>
-    </form>
-        </section>
-
-      </main>
-
-      {/* FOOTER */}
-      <footer>
-        <p>© 2025 Sude Düz. Tüm hakları saklıdır.</p>
-        <ul className="social-links">
-          <li><a href="https://github.com/sudeduz04" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          <li><a href="https://linkedin.com/in/sudeduz04" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-          <li><a href="mailto:sudeduz04@gmail.com">E-posta</a></li>
-        </ul>
+      {/* Footer */}
+      <footer className="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 text-center py-6 px-4 text-gray-500 dark:text-gray-400 text-sm">
+        <p>&copy; 2026 Sude Demir. Tüm hakları saklıdır.</p>
       </footer>
-
-    </div>
+    </>
   );
 }
 
